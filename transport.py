@@ -16,7 +16,7 @@ class Train(Transport):
         self.cargo = cargo
 
     def __str__(self):
-        return 'name = {}, type = {}, color = {}, speed = {}, heavy load = {}'\
+        return 'name = {}, type = {}, color = {}, speed = {}, heavy load = {}' \
             .format(self.name, self.type, self.color, self.speed, self.cargo)
 
     def heavy_load(self, heavy):
@@ -29,18 +29,16 @@ class Plane(Transport):
         super().__init__(name, type, color, speed)
 
     def __str__(self):
-        return 'name = {}, type = {}, color = {}, speed = {}'\
+        return 'name = {}, type = {}, color = {}, speed = {}' \
             .format(self.name, self.type, self.color, self.speed)
 
-    def people(self, people):
-        if people < 10:
-            return 'Это грузовой(спец. назначения) самолёт'
-        elif people > 700:
-            return 'Это большой пасс. самолёт'
-        elif people > 1378:  # Airbus A380
-            return 'Ошибка! Самолёта такой вместимости не существует'
+    def aircraft_position(self, name):
+        if name == 'Air':
+            return 'Plane in the air'
+        elif name == 'Ground':
+            return 'Plane on the ground'
         else:
-            return 'Это средний самолёт'
+            return NameError("Only 'Air' and 'Ground' can be used")
 
 
 train = Train()
@@ -54,4 +52,4 @@ plane = Plane()
 print(plane)
 plane.acceleration(100)
 print(plane)
-print(plane.people(1110))
+print(plane.aircraft_position('Air'))

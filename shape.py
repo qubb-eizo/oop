@@ -23,7 +23,7 @@ class Circle(Shape):
     def __str__(self):
         return 'Circle have coordinate x={} and coordinate y={}'.format(self.x, self.y)
 
-    def check_dot_in_circle(self, Dot):
+    def check_dot_in_circle(self, dot):
         """
         https://ru.stackoverflow.com/questions/244030/%D0%9E%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B8%D1%82%D1%8C-%D0%BF%D0%BE%D0%BF%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D0%BE%D1%87%D0%BA%D0%B8-%D0%B2-%D0%BA%D1%80%D1%83%D0%B3
         Вам можно воспользоваться следующим условием:
@@ -32,10 +32,10 @@ class Circle(Shape):
         в случае равенства левой и правой частей).
         Если не выполняется, то точка вне окружности.
         """
-        if (Dot.x - self.x) ** 2 + (Dot.y - self.y) ** 2 <= self.radius:
-            return 'Точка внутри окружности'
+        if (dot.x - self.x) ** 2 + (dot.y - self.y) ** 2 <= self.radius:
+            return True
         else:
-            return 'Точка вне окружности'
+            return False
 
 
 circle = Circle(5, 2, 10)  # точка вне окружности
